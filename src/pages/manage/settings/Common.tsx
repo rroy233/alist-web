@@ -11,14 +11,9 @@ export interface CommonSettingsProps {
   group: Group
 }
 const buildSettingsPayload = (settings: SettingItem[]) => {
-  const target = getTarget(settings) as SettingItem[]
-  const allowRegister = target.find((item) => item.key === "allow_register")
-
-  if (allowRegister?.value !== "true") {
-    return target.filter((item) => item.key !== "default_role")
-  }
-
-  return target
+  // The default role is also used by SSO auto-registration. It must be saved
+  // independently of whether public username/password registration is enabled.
+  return getTarget(settings) as SettingItem[]
 }
 
 const CommonSettings = (props: CommonSettingsProps) => {

@@ -487,6 +487,7 @@ const Login = () => {
               >
                 {t("login.use_guest")}
               </Button>
+              <SSOLogin />
               {/* 注册切换 */}
               <Show when={!isRegisterMode() && allowRegister()}>
                 <Button
@@ -510,7 +511,6 @@ const Login = () => {
               >
                 <SwitchLanguageWhite />
                 <SwitchColorMode />
-                <SSOLogin />
                 <Show when={AuthnSignEnabled}>
                   <Icon
                     cursor="pointer"
@@ -728,6 +728,7 @@ const Login = () => {
                   {t("login.use_guest")}
                 </Text>
               </HStack>
+              <SSOLogin />
             </VStack>
             <Flex
               mt="$2"
@@ -738,7 +739,6 @@ const Login = () => {
             >
               <SwitchLanguageWhite />
               <SwitchColorMode />
-              <SSOLogin />
               <Show when={AuthnSignEnabled}>
                 <Icon
                   cursor="pointer"
