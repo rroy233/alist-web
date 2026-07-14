@@ -4,6 +4,7 @@ import { BsMicrosoft } from "solid-icons/bs"
 import { AiOutlineGoogle, AiOutlineDingtalk } from "solid-icons/ai"
 import feishuLogo from "../../../images/feishu.png"
 import { base_path, changeToken, r } from "~/utils"
+import { getClientId } from "~/utils/client-id"
 import { getSetting, getSettingBool } from "~/store"
 import { useRouter } from "~/hooks"
 import { onCleanup } from "solid-js"
@@ -31,7 +32,10 @@ const SSOLogin = () => {
   })
   if (ssoSignEnabled) {
     const login = () => {
-      const url = r.getUri() + "/auth/sso?method=sso_get_token"
+      const url =
+        r.getUri() +
+        "/auth/sso?method=sso_get_token&device_id=" +
+        encodeURIComponent(getClientId())
       if (usecompatibility) {
         window.location.href = url
         return
