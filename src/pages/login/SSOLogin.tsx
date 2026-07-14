@@ -51,6 +51,9 @@ const SSOLogin = () => {
       case "Dingtalk":
         icon = AiOutlineDingtalk
         break
+      case "Feishu":
+        icon = FiLogIn
+        break
       default:
         icon = FiLogIn
     }
